@@ -1,0 +1,41 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "6b5f0569d49fae64752d218c175bd588"
+application_url = "https://checkout-bands-filters-race.trycloudflare.com"
+embedded = true
+name = "hippo"
+handle = "hippo-1"
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "zipytest.myshopify.com"
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "orders/paid" ]
+  uri = "/webhooks/orders/paid"
+
+  [[webhooks.subscriptions]]
+  topics = [ "checkouts/create" ]
+  uri = "/webhooks/checkout/create"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_orders,read_orders,read_customers,write_checkouts, read_checkouts"
+
+[auth]
+redirect_urls = [
+  "https://checkout-bands-filters-race.trycloudflare.com/auth/callback",
+  "https://checkout-bands-filters-race.trycloudflare.com/auth/shopify/callback",
+  "https://checkout-bands-filters-race.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false

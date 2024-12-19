@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zippy Login</title>
+    <link rel="stylesheet" href="auth-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="loginForm" class="auth-form">
+            <div class="logo">Zippy</div>
+            <h2>Login to Continue</h2>
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button id="loginButton">Login</button>
+            <p id="errorMessage" class="error-text"></p>
+        </div>
+    </div>
+
+    <!-- Import Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { handleLogin } from './auth-handler.js';
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCZux3uvB-8kgWuacXF2cO0rYbdU9s4BmI",
+            authDomain: "payment-m.firebaseapp.com",
+            projectId: "payment-m",
+            storageBucket: "payment-m.firebasestorage.app",
+            messagingSenderId: "277856660272",
+            appId: "1:277856660272:web:6a3f7be8e88996dc5836f5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Add click event listener
+        document.getElementById('loginButton').addEventListener('click', handleLogin);
+
+        // Check authentication state
+        onAuthStateChanged(auth, (user) => {
+            console.log('Auth state changed:', user ? 'User is signed in' : 'No user');
+            if (user) {
+                console.log('User details:', {
+                    email: user.email,
+                    uid: user.uid
+                });
+            }
+        });
+    </script>
+</body>
+</html>

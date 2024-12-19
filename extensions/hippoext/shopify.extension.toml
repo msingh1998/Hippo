@@ -1,0 +1,12 @@
+name = "Hippo Cart Extension"
+type = "theme_app_extension"
+
+[settings]
+button_position = { type = "select", default = "below", label = "Button Position" }
+
+[[blocks]]
+name = "Hippo Cart Button"
+type = "app_block"
+target = "section"
+settings = []
+

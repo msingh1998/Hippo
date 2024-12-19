@@ -1,0 +1,44 @@
+<!-- Hippa Receipt Toggle -->
+<div class="hippa-receipt-container">
+  <label class="hippa-toggle">
+    <input type="checkbox" id="hippaToggle">
+    <span class="hippa-toggle-slider"></span>
+    <span class="hippa-toggle-text">Connect Hippa Device</span>
+  </label>
+</div>
+
+<!-- Load Firebase first -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<!-- Initialize Firebase -->
+<script>
+  console.log('[Hippa Debug] Initializing Firebase...');
+  firebase.initializeApp({
+    apiKey: "AIzaSyCZux3uvB-8kgWuacXF2cO0rYbdU9s4BmI",
+    authDomain: "payment-m.firebaseapp.com",
+    projectId: "payment-m",
+    storageBucket: "payment-m.firebasestorage.app",
+    messagingSenderId: "277856660272",
+    appId: "1:277856660272:web:6a3f7be8e88996dc5836f5"
+  });
+</script>
+
+<!-- Load Hippa script and initialize -->
+<script src="{{ 'hippa.js' | asset_url }}" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('[Hippa Debug] DOM loaded, initializing HippaReceipt...');
+    new HippaReceipt();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Hippa Digital Receipt",
+  "target": "section",
+  "stylesheet": "hippa.css",
+  "javascript": "hippa.js",
+  "settings": []
+}
+{% endschema %} 

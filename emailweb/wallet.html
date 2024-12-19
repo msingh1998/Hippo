@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hippo Wallet</title>
+    <link rel="stylesheet" href="wallet-styles.css">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <div class="wallet-container">
+        <div class="wallet-header">
+            <h1>Your Hippo Wallet</h1>
+            <div class="balance-card">
+                <div class="balance-item">
+                    <h3>Available Balance</h3>
+                    <h2 id="availableBalance">$0.00</h2>
+                </div>
+                <div class="balance-item">
+                    <h3>Pending Rewards</h3>
+                    <h2 id="pendingBalance">$0.00</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="transactions-container">
+            <h2>Recent Activity</h2>
+            <div id="transactionsList" class="transactions-list">
+                <!-- Transactions will be inserted here -->
+            </div>
+        </div>
+
+        <div class="stores-container">
+            <h2>Your Rewards by Store</h2>
+            <div id="storesList" class="stores-list">
+                <!-- Store rewards will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="wallet.js"></script>
+</body>
+</html> 

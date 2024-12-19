@@ -1,0 +1,15 @@
+{
+  "name": "emailweb",
+  "version": "1.0.0",
+  "description": "Zippy Auth Service",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cookie-parser": "^1.4.6",
+    "firebase-admin": "^11.11.0"
+  }
+} 
